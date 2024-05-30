@@ -8,4 +8,15 @@
     <strong class="block font-medium mb-1">Content:</strong>
     <%= post.content %>
   </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Is published:</strong>
+    <%= post.published %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Vote Count:</strong>
+    <%= post.vote_count %>
+    <%= button_to "Add vote", post_add_vote_path(post), method: :post, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block" %>
+  </p>
 </div>

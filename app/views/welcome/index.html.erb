@@ -1,4 +1,4 @@
 <div>
   <h1 class="font-bold text-4xl">Welcome My Blog</h1>
-  <p class="mt-5">You can reach All Posts <%= link_to "here", posts_path, class:"text-sky-400" %></p>
+  <p class="mt-5">You can see <%= pluralize(@posts.count, "published post") %> <%= link_to "here", posts_path, class:"text-sky-400" %></p>
 </div>

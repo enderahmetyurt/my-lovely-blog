@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.published.order(created_at: :asc)
   end
 
   # GET /posts/1 or /posts/1.json
@@ -55,6 +55,14 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def add_vote
+    post = Post.find(params[:post_id])
+    post.vote_count += 1
+    post.save
+
+    redirect_to posts_path(post)
   end
 
   private
