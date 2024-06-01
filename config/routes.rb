@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
   resources :posts do
     post "/add_vote", to: "posts#add_vote"
+    post "/remove_vote", to: "posts#remove_vote"
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

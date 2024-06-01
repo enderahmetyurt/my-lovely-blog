@@ -65,6 +65,14 @@ class PostsController < ApplicationController
     redirect_to posts_path(post)
   end
 
+  def remove_vote
+    post = Post.find(params[:post_id])
+    post.vote_count += -1
+    post.save
+
+    redirect_to posts_path(post)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
