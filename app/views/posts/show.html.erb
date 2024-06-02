@@ -11,5 +11,30 @@
     <div class="inline-block ml-2">
       <%= button_to "Destroy this post", @post, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
+    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <div>
+      <h2 class="font-bold text-2xl">Comments (<%=  @post.comments.count %>)</h1>
+      <% @post.comments.each do |comment| %>
+        <div class="mt-5 max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow">
+          <p class="my-5">
+            <strong class="block font-medium mb-1">Commenter:</strong>
+            <%= comment.commenter %>
+          </p>
+          <p class="my-5">
+            <strong class="block font-medium mb-1">Body:</strong>
+            <%= comment.body %>
+          </p>
+        </div>
+      <% end %>
+      <%= form_with model: [ @post, @post.comments.build ], class: "mt-5" do |form| %>
+        <p>
+          <%= form.label :body %><br>
+          <%= form.text_area :body, rows: 4 %>
+        </p>
+        <p>
+          <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+        </p>
+      <% end %>
+    </div>
   </div>
 </div>

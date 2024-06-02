@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :posts do
     post "/add_vote", to: "posts#add_vote"
     post "/remove_vote", to: "posts#remove_vote"
+
+    resources :comments
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

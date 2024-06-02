@@ -4,4 +4,5 @@ class Post < ApplicationRecord
   scope :not_published, -> { where(published: false) }
 
   belongs_to :user
+  has_many :comments
 end

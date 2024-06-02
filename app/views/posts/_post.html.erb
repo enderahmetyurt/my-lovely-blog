@@ -18,9 +18,9 @@
     <strong class="block font-medium mb-1">Vote Count:</strong>
     <%= post.vote_count %>
     <div class="flex">
-      <%= button_to "Add vote", post_add_vote_path(post), method: :post, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block" %>
+      <%= button_to "Add vote", post_add_vote_path(post), method: :post, class: "rounded-lg py-3 px-5 bg-green-600 text-white block mr-5" %>
       <% unless post.vote_count.zero? %>
-        <%= button_to "Remove vote", post_remove_vote_path(post), method: :post, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block" %>
+        <%= button_to "Remove vote", post_remove_vote_path(post), method: :post, class: "rounded-lg py-3 px-5 bg-red-600 text-white block" %>
       <% end %>
     </div>
   </p>
