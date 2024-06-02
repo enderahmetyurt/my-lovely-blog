@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   resources :posts do
     post "/add_vote", to: "posts#add_vote"
     post "/remove_vote", to: "posts#remove_vote"
