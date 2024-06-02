@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     # @posts = Post.order(created_at: :asc)
-    @posts = current_user.posts.published
+    @posts = Post.published
   end
 
   # GET /posts/1 or /posts/1.json
